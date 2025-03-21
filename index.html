@@ -9,51 +9,73 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #000000;
         }
-
+        .dp{
+            width:100%;
+            height:100vh;
+            position: absolute;
+        }
         header {
-            background-color: #333;
+            background-color: #000000;
             color: #fff;
             padding: 20px;
             text-align: center;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
         section {
             padding: 50px 20px;
-            text-align: center;
         }
-
-        .about, .academics, .projects, .contact {
-            background-color: white;
-            margin: 20px auto;
+        .academics{
+            right: -25px;
+            top: 60px;
+            position: absolute;
+        }
+        .skills{
+            right: -25px;
+            top: 200px;
+            position: absolute;
+        }
+        .contact{
+            right: -25px;
+            top: 580px;
+            position: absolute;
+        }
+        .about{
+            top: 60px;
+            position: absolute;
+        }
+        .projects{
+            top: 270px;
+            position: absolute;
+        }
+        .experience{
+            top: 768px;
+            position: absolute;
+            background-color: rgb(0, 0, 0);
             border-radius: 8px;
-            width: 80%;
-            max-width: 1000px;
+            width:80%;
+            max-width: 1600px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
         }
-
+        .about, .academics, .skills, .projects, .contact {
+            background-color: rgb(0, 0, 0);
+            border-radius: 8px;
+            width:80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+        }
         .projects .project {
             margin-bottom: 20px;
         }
-
+        .skills .skill{
+            margin-bottom: 20px;
+        }
         footer {
+            top:1000px;
+            position: relative;
             text-align: center;
             padding: 10px;
             background-color: #333;
@@ -65,17 +87,14 @@
 
     <header>
         <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#academics">Academics</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about" class="about">
+</header>
+<iframe 
+src="https://my.spline.design/avatarcopy-5468f98a2028333f1e033db933a2f6f9/"
+frameborder="0"
+class="dp"
+>
+</iframe>    
+<section id="about" class="about">
         <h2>About Me</h2>
         <p>Hello! I’m Entenuka Hemanth, a passionate web developer with experience in creating dynamic and user-friendly websites. I specialize in front-end development and have a love for clean, functional design.</p>
     </section>
@@ -94,17 +113,44 @@
             <p>Online shopping website which  is a platform where users can browse, select, and purchase products or services over the internet. It enables customers to shop from the comfort of their homes, view detailed product descriptions, compare items, and make secure payments.I have developed website this project using languages html,css,javascript,flask,sqllite</p>
         </div>
     </section>
-
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skill">
+            <h3>Programming languages</h3>
+            <p> C,C++,Python,Java,Javascript,Data Structures and Algorithms</p>
+        </div>
+        <div class="skill">
+            <h3>Frameworks/Libraries</h3>
+            <p>Flask,ReactJs,Numpy,Pandas,SQLAlchemy</p>
+        </div>
+        <div class="skill">
+            <h3>Tools/Platforms</h3>
+            <p>Git,Github,Vercel,Spline</p>
+        </div>
+    </section>
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
         <p>If you'd like to work with me or have any questions, feel free to get in touch!</p>
         <p>Email: <a href="mailto:siddunani1405@gmail.com">siddunani1405@gmail.com</a></p>
     </section>
-
+    <section id="experience" class="experience">
+        <h2>Experience</h2>
+        <div class="exp">
+            <h3>TECNOHACKS | Cybersecurity & Ethicalhacking | 04/2024-05/2024</h3>
+            <p> As a cybersecurity and ethical hacking intern, I gained practical experience, learned
+                from industry experts, and worked with a tea of domain experts. </p>
+        </div>
+        <div class="exp">
+            <h3>INTERNPE | Python Programmer | 05/2024-06/2024</h3>
+            <p> i faithfully equipped knowledge on python programming  by  Leveraging strong problem-solving
+                skills, I actively contributed to the resolution of complex technical issues, ensuring system
+                stability and minimizing error rates, while promoting a culture of continuous improvement
+                within the development team</p>
+        </div>
+    </section>
     <footer>
         <p>&copy; 2024 Entenuka Hemanth. All Rights Reserved.</p>
     </footer>
 
 </body>
 </html>
-
