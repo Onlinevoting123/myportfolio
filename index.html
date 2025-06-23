@@ -1,156 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-        }
-        .dp{
-            width:100%;
-            height:100vh;
-            position: absolute;
-        }
-        header {
-            background-color: #000000;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entenuka Hemanth Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --card-color: #1a1a1a;
+      --accent: #00ffc8;
+      --text: #f0f0f0;
+      --muted: #999;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    nav {
+  background-color: var(--card-color);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 15px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
 
-        section {
-            padding: 50px 20px;
-        }
-        .academics{
-            right: -25px;
-            top: 60px;
-            position: absolute;
-        }
-        .skills{
-            right: -25px;
-            top: 200px;
-            position: absolute;
-        }
-        .contact{
-            right: -25px;
-            top: 580px;
-            position: absolute;
-        }
-        .about{
-            top: 60px;
-            position: absolute;
-        }
-        .projects{
-            top: 270px;
-            position: absolute;
-        }
-        .experience{
-            top: 768px;
-            position: absolute;
-            background-color: rgb(0, 0, 0);
-            border-radius: 8px;
-            width:80%;
-            max-width: 1600px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            color: #ffffff;
-        }
-        .about, .academics, .skills, .projects, .contact {
-            background-color: rgb(0, 0, 0);
-            border-radius: 8px;
-            width:80%;
-            max-width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            color: #ffffff;
-        }
-        .projects .project {
-            margin-bottom: 20px;
-        }
-        .skills .skill{
-            margin-bottom: 20px;
-        }
-        footer {
-            top:1000px;
-            position: relative;
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+nav a {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transition: color 0.3s;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -100%; /* start off-screen to the right */
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  z-index: -1;
+  transition: right 0.4s ease;
+}
+
+nav a:hover::before,
+nav a.active::before { /* active class lets it stay filled */
+  right: 0;
+}
+
+nav a:hover,
+nav a.active {
+  color: #000;
+  text-decoration: none;
+}
+
+    .header-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 5%;
+    }
+    .welcome-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .welcome-text h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
+    .dp {
+      flex: 1;
+      max-width: 400px;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+    }
+    section {
+      background: var(--card-color);
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      max-width: 1200px;
+      width: 95%;
+    }
+    section h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .project, .skill, .exp {
+      background: #222;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: background 0.3s;
+    }
+    .project:hover, .skill:hover, .exp:hover {
+      background: #2a2a2a;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    a {
+      color: var(--accent);
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .social-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  filter: invert(75%) sepia(100%) saturate(300%) hue-rotate(120deg);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2);
+  filter: invert(50%) sepia(100%) saturate(400%) hue-rotate(180deg);
+}
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+      .dp {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-</header>
-<iframe 
-src="https://my.spline.design/avatarcopy-5468f98a2028333f1e033db933a2f6f9/"
-frameborder="0"
-class="dp"
->
-</iframe>    
-<section id="about" class="about">
-        <h2>About Me</h2>
-        <p>Hello! I’m Entenuka Hemanth, a passionate web developer with experience in creating dynamic and user-friendly websites. I specialize in front-end development and have a love for clean, functional design.</p>
-    </section>
-    <section id="academics" class="academics">
-        <h2>Academics</h2>
-        <p>I'm studying in 3<sup>rd</sup>year Btech in Vignan's Institute of Information Technology with 8.5 CGPA on average.</p>
-    </section>
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Online voting website which allows users to cast votes over the internet, making the voting process more accessible, efficient, and secure.I have developed website this project using languages html,css,javascript and tools phpmyadmin</p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Online shopping website which  is a platform where users can browse, select, and purchase products or services over the internet. It enables customers to shop from the comfort of their homes, view detailed product descriptions, compare items, and make secure payments.I have developed website this project using languages html,css,javascript,flask,sqllite</p>
-        </div>
-    </section>
-    <section id="skills" class="skills">
-        <h2>My Skills</h2>
-        <div class="skill">
-            <h3>Programming languages</h3>
-            <p> C,C++,Python,Java,Javascript,Data Structures and Algorithms</p>
-        </div>
-        <div class="skill">
-            <h3>Frameworks/Libraries</h3>
-            <p>Flask,ReactJs,Numpy,Pandas,SQLAlchemy</p>
-        </div>
-        <div class="skill">
-            <h3>Tools/Platforms</h3>
-            <p>Git,Github,Vercel,Spline</p>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>If you'd like to work with me or have any questions, feel free to get in touch!</p>
-        <p>Email: <a href="mailto:siddunani1405@gmail.com">siddunani1405@gmail.com</a></p>
-    </section>
-    <section id="experience" class="experience">
-        <h2>Experience</h2>
-        <div class="exp">
-            <h3>TECNOHACKS | Cybersecurity & Ethicalhacking | 04/2024-05/2024</h3>
-            <p> As a cybersecurity and ethical hacking intern, I gained practical experience, learned
-                from industry experts, and worked with a tea of domain experts. </p>
-        </div>
-        <div class="exp">
-            <h3>INTERNPE | Python Programmer | 05/2024-06/2024</h3>
-            <p> i faithfully equipped knowledge on python programming  by  Leveraging strong problem-solving
-                skills, I actively contributed to the resolution of complex technical issues, ensuring system
-                stability and minimizing error rates, while promoting a culture of continuous improvement
-                within the development team</p>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2024 Entenuka Hemanth. All Rights Reserved.</p>
-    </footer>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#academics">Academics</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="header-container">
+    <div class="welcome-text">
+      <h1>Welcome to My Portfolio</h1>
+      <p>I'm <b>Entenuka Hemanth</b></p>
+    <div class="social-links">
+  <a href="https://www.codechef.com/users/hemanth1405" target="_blank" aria-label="CodeChef">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/codechef.svg" alt="CodeChef" />
+  </a>
+  <a href="https://leetcode.com/hemanth613" target="_blank" aria-label="LeetCode">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="LeetCode" />
+  </a>
+  <a href="https://github.com/Onlinevoting123" target="_blank" aria-label="GitHub">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+  </a>
+  <a href="https://www.linkedin.com/in/hemanth-entenuka-b09584284E" target="_blank" aria-label="LinkedIn">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+  </a>
+</div>
+</div>
+    <iframe src="https://my.spline.design/avatarcopy-5468f98a2028333f1e033db933a2f6f9/" class="dp"></iframe>
+  </div>
+
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m Entenuka Hemanth, a passionate developer specializing in web development, cybersecurity, and problem-solving. I thrive on building functional, secure, and user-friendly applications.</p>
+  </section>
+
+  <section id="academics">
+    <h2>Academics</h2>
+    <p>Bachelor of Technology in Computer Science and Engineering (Cyber Security), Vignan’s Institute Of Information Technology (2022-2026), CGPA: 8.49</p>
+    <p>Board of Intermediate: 78.8% | Apex Junior College (2020-2022)</p>
+    <p>SSC: 82.83% | Fort City School (2019-2020)</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Chat-room (ReactJS, NodeJS)</h3>
+      <p>Real-time chat app using Socket.IO, API integration, and a responsive interface. <a href="https://chat-room-join.vercel.app/" target="_blank">Live</a></p>
+    </div>
+    <div class="project">
+      <h3>WorldStore E-commerce (Flask, SQLAlchemy, JS, HTML, CSS)</h3>
+      <p>Full-stack e-commerce platform with smooth workflows and dynamic interactions. <a href="https://saw-onlineshopping.vercel.app/login" target="_blank">Live</a></p>
+    </div>
+    <div class="project">
+      <h3>Mimic Spreadsheet (HTML, CSS, JS)</h3>
+      <p>Spreadsheet editor replicating Google Sheets core functionality with formula parsing.</p>
+    </div>
+    <div class="project">
+      <h3>MERN Authentication System (MongoDB, Express, ReactJS, NodeJS)</h3>
+      <p>Secure auth system with email verification and robust validation. <a href="https://mern-authentication-system-nine.vercel.app/" target="_blank">Live</a></p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill"><strong>Languages:</strong> C, C++, Python, Java (Basic), Linux, JavaScript, HTML, CSS</div>
+    <div class="skill"><strong>Frameworks/Libraries:</strong> Flask, React.js, MySQL, MongoDB, SQLAlchemy, Node.js</div>
+    <div class="skill"><strong>Tools/Platforms:</strong> Git, GitHub, Vercel, Spline, VSCode, Insomnia, Postman, Railway, Render, Make</div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="exp">
+      <h3>INTERNPE | Python Programmer | May 2024 - Jun 2024</h3>
+      <p>Enhanced data processing, automation, and optimization, achieving 30% performance improvement.</p>
+    </div>
+    <div class="exp">
+      <h3>Technohacks | Cybersecurity & Ethical Hacking | Apr 2024 - May 2024</h3>
+      <p>Improved detection efficiency by 25%, mitigated threats, and contributed to code reviews and audits.</p>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Software Engineer Intern - HackerRank</li>
+      <li>HTML, CSS3, JavaScript - Infosys Springboard</li>
+      <li>Introduction to Prompt Engineering for Generative AI - LinkedIn Learning</li>
+      <li>Python Essentials 1 & 2 - Cisco Networking Academy</li>
+      <li>Cybersecurity & Ethical Hacking</li>
+    </ul>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements / Activities</h2>
+    <ul>
+      <li>Solved 600+ coding problems on LeetCode (Highest rating: 1569)</li>
+      <li>2★ (Two-Star) CodeChef rating</li>
+      <li>Active participant in coding contests</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:siddunani1405@gmail.com">siddunani1405@gmail.com</a></p>
+    <p>Phone: 7020249892</p>
+    <p>Location: Visakhapatnam</p>
+  </section>
+
+  <footer>
+    &copy; 2024 Entenuka Hemanth. All Rights Reserved.
+  </footer>
 
 </body>
 </html>
